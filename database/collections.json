@@ -1,0 +1,107 @@
+[
+    {
+        "name": "protected_Org1MSP",
+        "policy": "OR('Org1MSP.peer')",
+        "requiredPeerCount": 0,
+        "maxPeerCount": 3,
+        "blockToLive":0,
+        "memberOnlyRead": false,
+        "memberOnlyWrite": false
+    },
+    {
+        "name": "private_Org1MSP",
+        "policy": "OR('Org1MSP.peer')",
+        "requiredPeerCount": 0,
+        "maxPeerCount": 3,
+        "blockToLive":0,
+        "memberOnlyRead": false,
+        "memberOnlyWrite": false,
+        "endorsementPolicy": {
+            "signaturePolicy": "OR('Org1MSP.peer')"
+        }
+    },
+    {
+        "name": "protected_Org2MSP",
+        "policy": "OR('Org2MSP.peer')",
+        "requiredPeerCount": 0,
+        "maxPeerCount": 3,
+        "blockToLive":0,
+        "memberOnlyRead": false,
+        "memberOnlyWrite": false
+    },
+    {
+        "name": "private_Org2MSP",
+        "policy": "OR('Org2MSP.peer')",
+        "requiredPeerCount": 0,
+        "maxPeerCount": 3,
+        "blockToLive":0,
+        "memberOnlyRead": false,
+        "memberOnlyWrite": false,
+        "endorsementPolicy": {
+            "signaturePolicy": "OR('Org2MSP.peer')"
+        }
+    },
+    {
+        "name": "protected_Org3MSP",
+        "policy": "OR('Org3MSP.peer')",
+        "requiredPeerCount": 0,
+        "maxPeerCount": 3,
+        "blockToLive":0,
+        "memberOnlyRead": false,
+        "memberOnlyWrite": false
+    },
+    {
+        "name": "private_Org3MSP",
+        "policy": "OR('Org3MSP.peer')",
+        "requiredPeerCount": 0,
+        "maxPeerCount": 3,
+        "blockToLive":0,
+        "memberOnlyRead": false,
+        "memberOnlyWrite": false,
+        "endorsementPolicy": {
+            "signaturePolicy": "OR('Org3MSP.peer')"
+        }
+    },
+    {
+        "name": "protected_Org4MSP",
+        "policy": "OR('Org4MSP.peer')",
+        "requiredPeerCount": 0,
+        "maxPeerCount": 3,
+        "blockToLive":0,
+        "memberOnlyRead": false,
+        "memberOnlyWrite": false
+    },
+    {
+        "name": "private_Org4MSP",
+        "policy": "OR('Org4MSP.peer')",
+        "requiredPeerCount": 0,
+        "maxPeerCount": 3,
+        "blockToLive":0,
+        "memberOnlyRead": false,
+        "memberOnlyWrite": false,
+        "endorsementPolicy": {
+            "signaturePolicy": "OR('Org4MSP.peer')"
+        }
+    },
+    {
+        "name": "protected_Org5MSP",
+        "policy": "OR('Org5MSP.peer')",
+        "requiredPeerCount": 0,
+        "maxPeerCount": 3,
+        "blockToLive":0,
+        "memberOnlyRead": false,
+        "memberOnlyWrite": false
+    },
+    {
+        "name": "private_Org5MSP",
+        "policy": "OR('Org5MSP.peer')",
+        "requiredPeerCount": 0,
+        "maxPeerCount": 3,
+        "blockToLive":0,
+        "memberOnlyRead": false,
+        "memberOnlyWrite": false,
+        "endorsementPolicy": {
+            "signaturePolicy": "OR('Org5MSP.peer')"
+        }
+    }
+]
