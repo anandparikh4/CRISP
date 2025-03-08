@@ -1,0 +1,239 @@
+{
+    "name": "test-org${ORG}",
+    "version": "1.0.0",
+    "client": {
+        "organization": "Org${ORG}",
+        "connection": {
+            "timeout": {
+                "peer": {
+                    "endorser": "10000"
+                },
+                "orderer": "10000"
+            }
+        }
+    },
+    "channels": {
+        "mychannel": {
+            "orderers": [
+                "orderer0.org1.example.com",
+                "orderer0.org2.example.com",
+                "orderer0.org3.example.com",
+                "orderer0.org4.example.com",
+                "orderer0.org5.example.com"
+            ]
+        }
+    },
+    "organizations": {
+        "Org1": {
+            "mspid": "Org1MSP",
+            "peers": [
+                "peer0.org1.example.com"
+            ],
+            "certificateAuthorities": [
+                "ca.org1.example.com"
+            ]
+        },
+        "Org2": {
+            "mspid": "Org2MSP",
+            "peers": [
+                "peer0.org2.example.com"
+            ],
+            "certificateAuthorities": [
+                "ca.org2.example.com"
+            ]
+        },
+        "Org3": {
+            "mspid": "Org3MSP",
+            "peers": [
+                "peer0.org3.example.com"
+            ],
+            "certificateAuthorities": [
+                "ca.org3.example.com"
+            ]
+        },
+        "Org4": {
+            "mspid": "Org4MSP",
+            "peers": [
+                "peer0.org4.example.com"
+            ],
+            "certificateAuthorities": [
+                "ca.org4.example.com"
+            ]
+        },
+        "Org5": {
+            "mspid": "Org5MSP",
+            "peers": [
+                "peer0.org5.example.com"
+            ],
+            "certificateAuthorities": [
+                "ca.org5.example.com"
+            ]
+        }
+    },
+    "peers": {
+        "peer0.org1.example.com": {
+            "url": "grpcs://localhost:${PEERPORT_1}",
+            "tlsCACerts": {
+                "pem": "${PEERPEM_1}"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "peer0.org1.example.com",
+                "hostnameOverride": "peer0.org1.example.com",
+                "request-timeout": 12000
+            }
+        },
+        "peer0.org2.example.com": {
+            "url": "grpcs://localhost:${PEERPORT_2}",
+            "tlsCACerts": {
+                "pem": "${PEERPEM_2}"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "peer0.org2.example.com",
+                "hostnameOverride": "peer0.org2.example.com",
+                "request-timeout": 12000
+            }
+        },
+        "peer0.org3.example.com": {
+            "url": "grpcs://localhost:${PEERPORT_3}",
+            "tlsCACerts": {
+                "pem": "${PEERPEM_3}"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "peer0.org3.example.com",
+                "hostnameOverride": "peer0.org3.example.com",
+                "request-timeout": 12000
+            }
+        },
+        "peer0.org4.example.com": {
+            "url": "grpcs://localhost:${PEERPORT_4}",
+            "tlsCACerts": {
+                "pem": "${PEERPEM_4}"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "peer0.org4.example.com",
+                "hostnameOverride": "peer0.org4.example.com",
+                "request-timeout": 12000
+            }
+        },
+        "peer0.org5.example.com": {
+            "url": "grpcs://localhost:${PEERPORT_5}",
+            "tlsCACerts": {
+                "pem": "${PEERPEM_5}"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "peer0.org5.example.com",
+                "hostnameOverride": "peer0.org5.example.com",
+                "request-timeout": 12000
+            }
+        }
+    },
+    "orderers": {
+        "orderer0.org1.example.com": {
+            "url": "grpcs://localhost:${ORDERERPORT_1}",
+            "tlsCACerts": {
+                "pem": "${ORDERERPEM_1}"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "orderer0.org1.example.com",
+                "hostnameOverride": "orderer0.org1.example.com",
+                "request-timeout": 12000
+            }
+        },
+        "orderer0.org2.example.com": {
+            "url": "grpcs://localhost:${ORDERERPORT_2}",
+            "tlsCACerts": {
+                "pem": "${ORDERERPEM_2}"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "orderer0.org2.example.com",
+                "hostnameOverride": "orderer0.org2.example.com",
+                "request-timeout": 12000
+            }
+        },
+        "orderer0.org3.example.com": {
+            "url": "grpcs://localhost:${ORDERERPORT_3}",
+            "tlsCACerts": {
+                "pem": "${ORDERERPEM_3}"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "orderer0.org3.example.com",
+                "hostnameOverride": "orderer0.org3.example.com",
+                "request-timeout": 12000
+            }
+        },
+        "orderer0.org4.example.com": {
+            "url": "grpcs://localhost:${ORDERERPORT_4}",
+            "tlsCACerts": {
+                "pem": "${ORDERERPEM_4}"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "orderer0.org4.example.com",
+                "hostnameOverride": "orderer0.org4.example.com",
+                "request-timeout": 12000
+            }
+        },
+        "orderer0.org5.example.com": {
+            "url": "grpcs://localhost:${ORDERERPORT_5}",
+            "tlsCACerts": {
+                "pem": "${ORDERERPEM_5}"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "orderer0.org5.example.com",
+                "hostnameOverride": "orderer0.org5.example.com",
+                "request-timeout": 12000
+            }
+        }
+    },
+    "certificateAuthorities": {
+        "ca.org1.example.com": {
+            "url": "https://localhost:${CAPORT_1}",
+            "caName": "ca-org1",
+            "tlsCACerts": {
+                "pem": ["${CAPEM_1}"]
+            },
+            "httpOptions": {
+                "verify": false
+            }
+        },
+        "ca.org2.example.com": {
+            "url": "https://localhost:${CAPORT_2}",
+            "caName": "ca-org2",
+            "tlsCACerts": {
+                "pem": ["${CAPEM_2}"]
+            },
+            "httpOptions": {
+                "verify": false
+            }
+        },
+        "ca.org3.example.com": {
+            "url": "https://localhost:${CAPORT_3}",
+            "caName": "ca-org3",
+            "tlsCACerts": {
+                "pem": ["${CAPEM_3}"]
+            },
+            "httpOptions": {
+                "verify": false
+            }
+        },
+        "ca.org4.example.com": {
+            "url": "https://localhost:${CAPORT_4}",
+            "caName": "ca-org4",
+            "tlsCACerts": {
+                "pem": ["${CAPEM_4}"]
+            },
+            "httpOptions": {
+                "verify": false
+            }
+        },
+        "ca.org5.example.com": {
+            "url": "https://localhost:${CAPORT_5}",
+            "caName": "ca-org5",
+            "tlsCACerts": {
+                "pem": ["${CAPEM_5}"]
+            },
+            "httpOptions": {
+                "verify": false
+            }
+        }
+    }
+}

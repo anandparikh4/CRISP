@@ -1,0 +1,24 @@
+{
+    "Organizations": [
+        {
+            "org": "Org1",
+            "port": 20000
+        },
+        {
+            "org": "Org2",
+            "port": 21000
+        },
+        {
+            "org": "Org3",
+            "port": 22000
+        },
+        {
+            "org": "Org4",
+            "port": 23000
+        },
+        {
+            "org": "Org5",
+            "port": 24000
+        }
+    ]
+}

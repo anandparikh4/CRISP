@@ -1,0 +1,239 @@
+Organizations:
+    - &Org1
+        Name: Org1MSP
+        ID: Org1MSP
+        MSPDir: organizations/peerOrganizations/org1.example.com/msp                
+        Policies: &Org1MSPPolicies
+            Readers:
+                Type: Signature
+                Rule: "OR('Org1MSP.member')"
+            Writers:
+                Type: Signature
+                Rule: "OR('Org1MSP.member')"
+            Admins:
+                Type: Signature
+                Rule: "OR('Org1MSP.admin')"
+            Endorsement:
+                Type: Signature
+                Rule: "OR('Org1MSP.peer')"
+        AnchorPeers:
+            - Host: peer0.org1.example.com
+              Port: 7051
+
+    - &Org2
+        Name: Org2MSP
+        ID: Org2MSP
+        MSPDir: organizations/peerOrganizations/org2.example.com/msp
+        Policies: &Org2MSPPolicies
+            Readers:
+                Type: Signature
+                Rule: "OR('Org2MSP.member')"
+            Writers:
+                Type: Signature
+                Rule: "OR('Org2MSP.member')"
+            Admins:
+                Type: Signature
+                Rule: "OR('Org2MSP.admin')"
+            Endorsement:
+                Type: Signature
+                Rule: "OR('Org2MSP.peer')"
+        AnchorPeers:
+            - Host: peer0.org2.example.com
+              Port: 7151
+
+    - &Org3
+        Name: Org3MSP
+        ID: Org3MSP
+        MSPDir: organizations/peerOrganizations/org3.example.com/msp                
+        Policies: &Org3MSPPolicies
+            Readers:
+                Type: Signature
+                Rule: "OR('Org3MSP.member')"
+            Writers:
+                Type: Signature
+                Rule: "OR('Org3MSP.member')"
+            Admins:
+                Type: Signature
+                Rule: "OR('Org3MSP.admin')"
+            Endorsement:
+                Type: Signature
+                Rule: "OR('Org3MSP.peer')"
+        AnchorPeers:
+            - Host: peer0.org3.example.com
+              Port: 7251
+
+    - &Org4
+        Name: Org4MSP
+        ID: Org4MSP
+        MSPDir: organizations/peerOrganizations/org4.example.com/msp                
+        Policies: &Org4MSPPolicies
+            Readers:
+                Type: Signature
+                Rule: "OR('Org4MSP.member')"
+            Writers:
+                Type: Signature
+                Rule: "OR('Org4MSP.member')"
+            Admins:
+                Type: Signature
+                Rule: "OR('Org4MSP.admin')"
+            Endorsement:
+                Type: Signature
+                Rule: "OR('Org4MSP.peer')"
+        AnchorPeers:
+            - Host: peer0.org4.example.com
+              Port: 7351
+
+    - &Org5
+        Name: Org5MSP
+        ID: Org5MSP
+        MSPDir: organizations/peerOrganizations/org5.example.com/msp                
+        Policies: &Org5MSPPolicies
+            Readers:
+                Type: Signature
+                Rule: "OR('Org5MSP.member')"
+            Writers:
+                Type: Signature
+                Rule: "OR('Org5MSP.member')"
+            Admins:
+                Type: Signature
+                Rule: "OR('Org5MSP.admin')"
+            Endorsement:
+                Type: Signature
+                Rule: "OR('Org5MSP.peer')"
+        AnchorPeers:
+            - Host: peer0.org5.example.com
+              Port: 7451
+
+Capabilities:
+    Channel: &ChannelCapabilities
+        V2_0: true
+    Orderer: &OrdererCapabilities
+        V2_0: true
+    Application: &ApplicationCapabilities
+        V2_0: true
+
+Application: &ApplicationDefaults
+    Organizations:
+    Policies: &ApplicationDefaultPolicies
+        Readers:
+            Type: ImplicitMeta
+            Rule: "ANY Readers"
+        Writers:
+            Type: ImplicitMeta
+            Rule: "ANY Writers"
+        Admins:
+            Type: ImplicitMeta
+            Rule: "MAJORITY Admins"
+        LifecycleEndorsement:
+            Type: ImplicitMeta
+            Rule: "MAJORITY Endorsement"
+        Endorsement:
+            Type: ImplicitMeta
+            Rule: "MAJORITY Endorsement"
+    Capabilities:
+        <<: *ApplicationCapabilities
+
+Orderer: &OrdererDefaults
+    OrdererType: etcdraft
+    Addresses:
+        - orderer0.org1.example.com:7050
+        - orderer0.org2.example.com:7150
+        - orderer0.org3.example.com:7250
+        - orderer0.org4.example.com:7350
+        - orderer0.org5.example.com:7450
+    BatchTimeout: 1000ms
+    BatchSize:
+        MaxMessageCount: 500
+        AbsoluteMaxBytes: 10 MB
+        PreferredMaxBytes: 2 MB
+    MaxChannels: 0
+    Kafka:
+        Brokers:
+            - kafka0:9092
+            - kafka1:9092
+            - kafka2:9092
+    EtcdRaft:
+        Consenters:
+            - Host: orderer0.org1.example.com
+              Port: 7050
+              ClientTLSCert: organizations/peerOrganizations/org1.example.com/orderers/orderer0.org1.example.com/tls/server.crt
+              ServerTLSCert: organizations/peerOrganizations/org1.example.com/orderers/orderer0.org1.example.com/tls/server.crt
+            - Host: orderer0.org2.example.com
+              Port: 7150
+              ClientTLSCert: organizations/peerOrganizations/org2.example.com/orderers/orderer0.org2.example.com/tls/server.crt
+              ServerTLSCert: organizations/peerOrganizations/org2.example.com/orderers/orderer0.org2.example.com/tls/server.crt
+            - Host: orderer0.org3.example.com
+              Port: 7250
+              ClientTLSCert: organizations/peerOrganizations/org3.example.com/orderers/orderer0.org3.example.com/tls/server.crt
+              ServerTLSCert: organizations/peerOrganizations/org3.example.com/orderers/orderer0.org3.example.com/tls/server.crt
+            - Host: orderer0.org4.example.com
+              Port: 7350
+              ClientTLSCert: organizations/peerOrganizations/org4.example.com/orderers/orderer0.org4.example.com/tls/server.crt
+              ServerTLSCert: organizations/peerOrganizations/org4.example.com/orderers/orderer0.org4.example.com/tls/server.crt
+            - Host: orderer0.org5.example.com
+              Port: 7450
+              ClientTLSCert: organizations/peerOrganizations/org5.example.com/orderers/orderer0.org5.example.com/tls/server.crt
+              ServerTLSCert: organizations/peerOrganizations/org5.example.com/orderers/orderer0.org5.example.com/tls/server.crt
+
+        Options:
+            TickInterval: 500ms
+            ElectionTick: 10
+            HeartbeatTick: 1
+            MaxInflightBlocks: 5
+            SnapshotIntervalSize: 20 MB
+    Organizations:
+    Policies:
+        Readers:
+            Type: ImplicitMeta
+            Rule: "ANY Readers"
+        Writers:
+            Type: ImplicitMeta
+            Rule: "ANY Writers"
+        Admins:
+            Type: ImplicitMeta
+            Rule: "MAJORITY Admins"
+        BlockValidation:
+            Type: ImplicitMeta
+            Rule: "ANY Writers"
+    Capabilities:
+        <<: *OrdererCapabilities
+
+Channel: &ChannelDefaults
+    Policies:
+        Readers:
+            Type: ImplicitMeta
+            Rule: "ANY Readers"
+        Writers:
+            Type: ImplicitMeta
+            Rule: "ANY Writers"
+        Admins:
+            Type: ImplicitMeta
+            Rule: "MAJORITY Admins"
+    Capabilities:
+        <<: *ChannelCapabilities
+
+
+Profiles:
+
+    SampleAppChannelEtcdRaft:
+        <<: *ChannelDefaults
+        Orderer:
+            <<: *OrdererDefaults
+            Organizations:
+                - *Org1
+                - *Org2
+                - *Org3
+                - *Org4
+                - *Org5
+            Capabilities:
+                <<: *OrdererCapabilities
+        Application:
+            <<: *ApplicationDefaults
+            Organizations:
+                - *Org1
+                - *Org2
+                - *Org3
+                - *Org4
+                - *Org5
+            Capabilities:
+                <<: *ApplicationCapabilities
